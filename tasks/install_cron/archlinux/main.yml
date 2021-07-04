@@ -1,0 +1,8 @@
+- name: "Install the 'cronie' cron daemon package"
+  # See https://wiki.archlinux.org/title/Cron#Installation
+  community.general.pacman:
+    name: cronie
+    state: present
+  become: true
+  become_user: root
+
