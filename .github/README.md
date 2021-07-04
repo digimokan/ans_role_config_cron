@@ -1,6 +1,6 @@
 # ans_role_config_cron
 
-Install standard UNIX cron daemon, and configure it to start at boot.
+Install and configure the standard UNIX cron daemon.
 
 [![Release](https://img.shields.io/github/release/digimokan/ans_role_config_cron.svg?label=release)](https://github.com/digimokan/ans_role_config_cron/releases/latest "Latest Release Notes")
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?label=license)](LICENSE.md "Project License")
@@ -18,8 +18,7 @@ Install standard UNIX cron daemon, and configure it to start at boot.
 * Install standard UNIX [cron](https://en.wikipedia.org/wiki/Cron) daemon.
 * Configure the cron daemon to start at boot.
 * Ensure cron deamon is currently running.
-* _NOTE_ This role installs cron and ensures it is always running. Use other
-ansible roles or tasks to schedule cron jobs.
+* _NOTE: Use other ansible roles or tasks to schedule cron jobs_.
 
 ## Supported Operating Systems
 
