@@ -15,9 +15,9 @@ Install and configure the standard UNIX cron daemon.
 
 ## Purpose
 
-* Install standard UNIX [cron](https://en.wikipedia.org/wiki/Cron) daemon.
+* Install the standard UNIX [cron](https://en.wikipedia.org/wiki/Cron) daemon.
 * Configure the cron daemon to start at boot.
-* Ensure cron deamon is currently running.
+* Ensure the cron deamon is currently running.
 * _NOTE: Use other ansible roles or tasks to schedule cron jobs_.
 
 ## Supported Operating Systems
