@@ -23,6 +23,7 @@ Install and configure the standard UNIX cron daemon.
 ## Supported Operating Systems
 
 * Arch Linux.
+* FreeBSD.
 
 ## Quick Start
 

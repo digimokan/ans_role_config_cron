@@ -7,7 +7,11 @@ galaxy_info:
     - name: Archlinux
       versions:
         - all
+    - name: FreeBSD
+      versions:
+        - all
   galaxy_tags:
     - archlinux
+    - freebsd
     - cron
 
