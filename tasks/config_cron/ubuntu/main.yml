@@ -1,0 +1,8 @@
+- name: "Ensure 'cron' cron service is started, and enable it to start at boot"
+  ansible.builtin.service:
+    name: cron
+    state: started
+    enabled: yes
+  become: true
+  become_user: root
+

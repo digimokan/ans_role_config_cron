@@ -22,6 +22,7 @@ Install and configure the standard UNIX cron daemon.
 
 ## Supported Operating Systems
 
+* Ubuntu bionic (18.04), focal (20.04), jammy (22.04)
 * Arch Linux.
 * FreeBSD.
 
