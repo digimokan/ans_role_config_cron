@@ -4,3 +4,6 @@ cfg_cron_freebsd_packages: []
 # cron service name
 cfg_cron_freebsd_service: "cron"
 
+# path to system cron.d dir, for one-job-per-file jobs for all users
+cfg_cron_freebsd_cron_d_dir: "/usr/local/etc/cron.d"
+

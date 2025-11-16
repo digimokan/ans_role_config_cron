@@ -1,7 +1,3 @@
-# list of all possible cron users, regardless of whether they have cfg_cron_jobs
-cfg_cron_all_possible_cron_users: []
-# cfg_cron_all_possible_cron_users: [ "root", "user2", "user3" ]
-
 # set of cron jobs to emplace in user (or root) crontabs
 cfg_cron_jobs: []
 #   - job_label: "ansible_run_main_bkup"

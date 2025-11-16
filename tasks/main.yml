@@ -3,6 +3,7 @@
   vars:
     cfg_cron_system_packages: "{{ cfg_cron_ubuntu_packages }}"
     cfg_cron_system_service: "{{ cfg_cron_ubuntu_service }}"
+    cfg_cron_system_cron_d_dir: "{{ cfg_cron_linux_cron_d_dir }}"
   when: ansible_distribution == "Ubuntu"
 
 - name: "Run all role tasks for Arch Linux"
@@ -10,6 +11,7 @@
   vars:
     cfg_cron_system_packages: "{{ cfg_cron_archlinux_packages }}"
     cfg_cron_system_service: "{{ cfg_cron_archlinux_service }}"
+    cfg_cron_system_cron_d_dir: "{{ cfg_cron_linux_cron_d_dir }}"
   when: ansible_os_family == "Archlinux"
 
 - name: "Run all role tasks for FreeBSD"
@@ -17,5 +19,6 @@
   vars:
     cfg_cron_system_packages: "{{ cfg_cron_freebsd_packages }}"
     cfg_cron_system_service: "{{ cfg_cron_freebsd_service }}"
+    cfg_cron_system_cron_d_dir: "{{ cfg_cron_freebsd_cron_d_dir }}"
   when: ansible_os_family == "FreeBSD"
 

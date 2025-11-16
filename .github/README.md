@@ -57,10 +57,6 @@ $ ansible-galaxy install --role-file requirements.yml --roles-path ./roles --for
          ansible.builtin.include_role:
            name: ans_role_config_cron
          vars:
-           cfg_cron_all_possible_cron_users:
-             - "root"
-             - "user2"
-             - "user3"
            cfg_cron_jobs:
              - job_label: "ansible_run_main_bkup"
                job_user: "root"

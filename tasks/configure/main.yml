@@ -1,37 +1,6 @@
-- name: "Ensure '{{ cfg_cron_system_service }}' service is started, and enable it to start at boot"
-  ansible.builtin.service:
-    name: "{{ cfg_cron_system_service }}"
-    state: started
-    enabled: true
-  become: true
-  become_user: root
+- name: "Start and enable cron service"
+  ansible.builtin.include_tasks: service.yml
 
-- name: "Emplace cron jobs for root and other users"
-  ansible.builtin.cron:
-    name: "{{ cjob.job_label }}"
-    user: "{{ cjob.job_user }}"
-    minute: "{{ cjob.job_minute | default('*') }}"
-    hour: "{{ cjob.job_hour | default('*') }}"
-    day: "{{ cjob.job_day | default('*') }}"
-    month: "{{ cjob.job_month | default('*') }}"
-    weekday: "{{ cjob.job_weekday | default('*') }}"
-    job: "{{ cjob.job_cmd }}"
-    state: present
-  loop: "{{ cfg_cron_jobs }}"
-  loop_control:
-    loop_var: cjob
-  become: true
-  become_user: root
-
-- name: "Remove all non-ansible-managed cron jobs"
-  ansible.builtin.cron:
-    # Note: ansible-created jobs are tagged in comments, so '*' works here
-    name: "*"
-    user: "{{ cjob_user }}"
-    state: absent
-  loop: "{{ cfg_cron_all_possible_cron_users }}"
-  loop_control:
-    loop_var: cjob_user
-  become: true
-  become_user: root
+- name: "Create set of cron jobs for all users"
+  ansible.builtin.include_tasks: create_jobs.yml
 

@@ -1,0 +1,45 @@
+- name: "Create system cron jobs directory '{{ cfg_cron_system_cron_d_dir }}', if not exist"
+  ansible.builtin.file:
+    path: "{{ cfg_cron_system_cron_d_dir }}"
+    state: directory
+  become: true
+  become_user: root
+
+- name: "Gather list of pre-existing files/jobs in '{{ cfg_cron_system_cron_d_dir }}'"
+  ansible.builtin.find:
+    paths: "{{ cfg_cron_system_cron_d_dir }}"
+    patterns: "*"
+    file_type: file
+  register: existing_cron_job_files
+  become: true
+  become_user: root
+  changed_when: false
+
+- name: "Emplace cron files/jobs for root and other users in {{ cfg_cron_system_cron_d_dir }}"
+  ansible.builtin.cron:
+    cron_file: "{{ cfg_cron_system_cron_d_dir }}/{{ cjob.job_label }}"
+    user: "{{ cjob.job_user }}"
+    minute: "{{ cjob.job_minute | default('*') }}"
+    hour: "{{ cjob.job_hour | default('*') }}"
+    day: "{{ cjob.job_day | default('*') }}"
+    month: "{{ cjob.job_month | default('*') }}"
+    weekday: "{{ cjob.job_weekday | default('*') }}"
+    job: "{{ cjob.job_cmd }}"
+    state: present
+  loop: "{{ cfg_cron_jobs }}"
+  loop_control:
+    loop_var: cjob
+  become: true
+  become_user: root
+
+- name: "Remove any non-ansible-managed files/jobs in '{{ cfg_cron_system_cron_d_dir }}'"
+  ansible.builtin.file:
+    path: "{{ existing_file.path }}"
+    state: absent
+  loop: "{{ existing_cron_job_files.files }}"
+  loop_control:
+    loop_var: existing_file
+  become: true
+  become_user: root
+  when: existing_file.path | basename not in cfg_cron_jobs | map(attribute='job_label')
+

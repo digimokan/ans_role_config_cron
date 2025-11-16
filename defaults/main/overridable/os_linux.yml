@@ -1,0 +1,3 @@
+# path to system cron.d dir, for one-job-per-file jobs for all users
+cfg_cron_linux_cron_d_dir: "/etc/cron.d"
+

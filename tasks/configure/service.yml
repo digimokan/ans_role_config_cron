@@ -1,0 +1,8 @@
+- name: "Ensure '{{ cfg_cron_system_service }}' service is started, and enable it to start at boot"
+  ansible.builtin.service:
+    name: "{{ cfg_cron_system_service }}"
+    state: started
+    enabled: true
+  become: true
+  become_user: root
+
