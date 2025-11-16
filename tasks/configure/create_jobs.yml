@@ -17,6 +17,7 @@
 
 - name: "Emplace cron files/jobs for root and other users in {{ cfg_cron_system_cron_d_dir }}"
   ansible.builtin.cron:
+    name: "{{ cjob.job_label }}"
     cron_file: "{{ cfg_cron_system_cron_d_dir }}/{{ cjob.job_label }}"
     user: "{{ cjob.job_user }}"
     minute: "{{ cjob.job_minute | default('*') }}"
