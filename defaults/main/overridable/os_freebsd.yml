@@ -1,0 +1,6 @@
+# cron packages to install
+cfg_cron_freebsd_packages: []
+
+# cron service name
+cfg_cron_freebsd_service: "cron"
+

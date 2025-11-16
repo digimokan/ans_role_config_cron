@@ -1,0 +1,6 @@
+- name: "Install the cron daemon"
+  ansible.builtin.include_tasks: install/main.yml
+
+- name: "Configure the cron daemon"
+  ansible.builtin.include_tasks: configure/main.yml
+

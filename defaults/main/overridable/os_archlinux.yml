@@ -1,0 +1,7 @@
+# cron packages to install
+cfg_cron_archlinux_packages:
+  - cronie
+
+# cron service name
+cfg_cron_archlinux_service: "cronie"
+

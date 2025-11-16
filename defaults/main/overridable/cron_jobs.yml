@@ -1,0 +1,15 @@
+# list of all possible cron users, regardless of whether they have cfg_cron_jobs
+cfg_cron_all_possible_cron_users: []
+# cfg_cron_all_possible_cron_users: [ "root", "user2", "user3" ]
+
+# set of cron jobs to emplace in user (or root) crontabs
+cfg_cron_jobs: []
+#   - job_label: "ansible_run_main_bkup"
+#     job_user: "root"
+#     job_minute: "0"   # may omit
+#     job_hour: "2"     # may omit
+#     job_day: "*"      # may omit
+#     job_month: "*"    # may omit
+#     job_weekday: "*"  # may omit
+#     job_cmd: "/usr/local/bin/bkup_script.sh"
+

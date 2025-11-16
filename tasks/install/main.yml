@@ -1,0 +1,7 @@
+- name: "Install required cron packages: '{{ cfg_cron_system_packages }}'"
+  ansible.builtin.package:
+    name: "{{ cfg_cron_system_packages }}"
+    state: present
+  become: true
+  become_user: root
+

@@ -1,8 +1,0 @@
-- name: "Install cron daemon for Ubuntu"
-  ansible.builtin.include_tasks: ubuntu/main.yml
-  when: ansible_distribution == "Ubuntu"
-
-- name: "Install cron daemon for Arch Linux"
-  ansible.builtin.include_tasks: archlinux/main.yml
-  when: ansible_os_family == "Archlinux"
-

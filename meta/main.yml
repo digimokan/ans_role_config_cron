@@ -9,9 +9,7 @@ galaxy_info:
         - all
     - name: Ubuntu
       versions:
-        - bionic
-        - focal
-        - jammy
+        - all
     - name: FreeBSD
       versions:
         - all

@@ -1,7 +1,0 @@
-- name: "Install the 'cron' application package"
-  ansible.builtin.package:
-    name: cron
-    state: present
-  become: true
-  become_user: root
-
